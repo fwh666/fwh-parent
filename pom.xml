@@ -19,6 +19,7 @@
         <!--        <module>fwh-oauth</module>-->
         <!--        <module>fwh-zuul-demo</module>-->
         <!--        <module>spring-boot-example</module>-->
+        <module>fwh-common</module>
     </modules>
 
     <properties>
