@@ -12,6 +12,14 @@
     <artifactId>fwh-common</artifactId>
     <packaging>jar</packaging>
     <description>公共模块</description>
+    <dependencies>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>
