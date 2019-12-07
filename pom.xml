@@ -20,6 +20,7 @@
         <!--        <module>fwh-zuul-demo</module>-->
         <!--        <module>spring-boot-example</module>-->
         <module>fwh-common</module>
+        <module>spring-boot-example</module>
     </modules>
 
     <properties>
