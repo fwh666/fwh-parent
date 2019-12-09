@@ -14,7 +14,9 @@ springboot1.0版本和springboot2.0版本比对，以及相关依赖引用，方
     2.session存储 
         - 使用spring-session
         - 设置失效时间    
-        - 确认存储的sessionId与redis中一致,达到共享session的效果
+        - 确认存储的sessionId与redis中一致,达到共享session的效果    
+    3. 多环境管理：
+        profiles配置
    ### OAuth
    - 认证
    - 权限
