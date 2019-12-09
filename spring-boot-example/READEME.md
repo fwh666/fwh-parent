@@ -4,13 +4,17 @@ springboot1.0版本和springboot2.0版本比对，以及相关依赖引用，方
 
 ## 模块记录
    ### Redis
-   - redisTemplate的增删改查、失效时间、选择库
-    - 数据类型：
+   - redisTemplate的增删改查、失效时间、选择库    
+    1.数据类型：
         - string
         - map
         - hash
         - set
-        - list
+        - list  
+    2.session存储 
+        - 使用spring-session
+        - 设置失效时间    
+        - 确认存储的sessionId与redis中一致,达到共享session的效果
    ### OAuth
    - 认证
    - 权限
