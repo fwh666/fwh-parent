@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-boot-redis</module>
+        <module>spring-boot-rabbitmq</module>
     </modules>
 
 
