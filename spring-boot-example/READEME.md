@@ -29,8 +29,8 @@ springboot1.0版本和springboot2.0版本比对，以及相关依赖引用，方
 	-  高级使用
 	    - Topic Exchange 转发消息主要是根据通配符。 在这种交换机下，队列和交换机的绑定会定义一种路由模式，那么，通配符就要在这种路由模式和路由键之间匹配后交换机才能转发消息。
 	        - 这种模式比较灵活,需要配置绑定规则.重点在于通配符的配置.
-        - 
-
+        - Fanout Exchange Fanout 就是我们熟悉的广播模式或者订阅模式，给 Fanout 交换机发送消息，绑定了这个交换机的所有队列都收到这个消息
+    - 参考地址: http://www.ityouknow.com/springboot/2016/11/30/spring-boot-rabbitMQ.html
 ### OAuth
    - 认证
    - 权限
