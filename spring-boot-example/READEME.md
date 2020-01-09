@@ -31,6 +31,9 @@ springboot1.0版本和springboot2.0版本比对，以及相关依赖引用，方
 	        - 这种模式比较灵活,需要配置绑定规则.重点在于通配符的配置.
         - Fanout Exchange Fanout 就是我们熟悉的广播模式或者订阅模式，给 Fanout 交换机发送消息，绑定了这个交换机的所有队列都收到这个消息
     - 参考地址: http://www.ityouknow.com/springboot/2016/11/30/spring-boot-rabbitMQ.html
+### Admin
+    - 管理端页面 
+    - 服务注册到Eureka中,admin会自动拉取客户端服务信息
 ### OAuth
    - 认证
    - 权限
