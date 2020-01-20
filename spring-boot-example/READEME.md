@@ -47,3 +47,4 @@ springboot1.0版本和springboot2.0版本比对，以及相关依赖引用，方
    - mail
    - fastDfs
    - mongodb
+-test
