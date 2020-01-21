@@ -33,7 +33,8 @@ springboot1.0版本和springboot2.0版本比对，以及相关依赖引用，方
     - 参考地址: http://www.ityouknow.com/springboot/2016/11/30/spring-boot-rabbitMQ.html
 ### Admin
     - 管理端页面 
-    - 服务注册到Eureka中,admin会自动拉取客户端服务信息
+    - 服务注册到Eureka中,admin会自动拉取客户端服务信息    
+    - 确认有哪些必要数据值
 ### OAuth
    - 认证
    - 权限
