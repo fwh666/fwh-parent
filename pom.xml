@@ -21,6 +21,7 @@
         <!--        <module>spring-boot-example</module>-->
         <module>fwh-common</module>
         <module>spring-boot-example</module>
+        <module>fwh-mongodb</module>
     </modules>
 
     <properties>
@@ -31,8 +32,10 @@
         <java.version>1.8</java.version>
 <!--        <spring-boot.version>1.5.14.RELEASE</spring-boot.version>-->
 <!--        <spring-cloud.version>Edgware.SR3</spring-cloud.version>-->
-        <spring-cloud.version>Finchley.SR4</spring-cloud.version>
-        <spring-boot.version>2.0.6.RELEASE</spring-boot.version>
+<!--        <spring-cloud.version>Finchley.SR4</spring-cloud.version>-->
+<!--        <spring-boot.version>2.0.6.RELEASE</spring-boot.version>-->
+        <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+        <spring-boot.version>2.2.0.RELEASE</spring-boot.version>
     </properties>
 
     <!--父类加载spring-cloud框架定义boot和cloud的版本号对应-->
