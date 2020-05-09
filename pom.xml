@@ -3,6 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.0.RELEASE</version>
+    </parent>
 
     <groupId>com.fuwenhao</groupId>
     <artifactId>fwh-parent</artifactId>
@@ -22,6 +27,9 @@
         <module>fwh-common</module>
         <module>spring-boot-example</module>
         <module>fwh-mongodb</module>
+        <module>fwh-web</module>
+        <module>fwh-gateway</module>
+        <module>fwh-nacos</module>
     </modules>
 
     <properties>
@@ -35,23 +43,30 @@
 <!--        <spring-cloud.version>Finchley.SR4</spring-cloud.version>-->
 <!--        <spring-boot.version>2.0.6.RELEASE</spring-boot.version>-->
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
-        <spring-boot.version>2.2.0.RELEASE</spring-boot.version>
+<!--        <spring-boot.version>2.2.0.RELEASE</spring-boot.version>-->
     </properties>
 
     <!--父类加载spring-cloud框架定义boot和cloud的版本号对应-->
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-dependencies</artifactId>-->
+<!--                <version>${spring-boot.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.1.0.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

@@ -4,7 +4,7 @@ spring-cloud-demo
 - 一直想着整一套cloud全家桶模块.
 - 在码云上已经创建了一大部分代码,但相比GitHub的知名度还是转移过来.
 - 本打算全部import过来,想着熟悉的角度还是重新review一遍.
-- 之前是用的spring-boot1.x版本。现在使用2.x版本开发    
+- 之前是用的spring-boot1.x版本。现在使用2.x版本重新开发    
 ## 版本介绍:
 - 一套： 
     - springboot: 2.0.6.RELEASE   
@@ -12,3 +12,17 @@ spring-cloud-demo
 - 二套：
     - springboot: 2.2.0.RELEASE
     - springCloud:Hoxton.SR1
+## 端口号：
+- web:  8080
+- mongodb: 8180
+- gateway: 8010
+
+## 问题记录：
+- 网关请求一直报错404？
+    - 试错原因：boot和cloud的版本导致
+    - 问题版本：
+        - boot: 2.2.0.RELEASE
+        - cloud：Hoxton.SR1
+    - 正常版本：
+        - boot: 2.1.6.RELEASE 
+        - cloud: Greenwich.SR3
