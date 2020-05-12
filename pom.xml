@@ -29,7 +29,7 @@
         <module>fwh-mongodb</module>
         <module>fwh-web</module>
         <module>fwh-gateway</module>
-        <module>fwh-nacos</module>
+        <module>fwh-ribbon</module>
     </modules>
 
     <properties>

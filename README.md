@@ -16,6 +16,7 @@ spring-cloud-demo
 - web:  8080
 - mongodb: 8180
 - gateway: 8010
+- ribbon: 8181
 
 ## 问题记录：
 - 网关请求一直报错404？
