@@ -13,10 +13,12 @@ spring-cloud-demo
     - springboot: 2.2.0.RELEASE
     - springCloud:Hoxton.SR1
 ## 端口号：
-- web:  8080
+- web:  8080/9090
 - mongodb: 8180
 - gateway: 8010
 - ribbon: 8181
+- feign: 8182
+- nacos-config: 8183
 
 ## 问题记录：
 - 网关请求一直报错404？

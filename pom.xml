@@ -30,6 +30,9 @@
         <module>fwh-web</module>
         <module>fwh-gateway</module>
         <module>fwh-ribbon</module>
+        <module>fwh-feign</module>
+        <module>fwh-sentine</module>
+        <module>fwh-nacostest</module>
     </modules>
 
     <properties>
@@ -72,5 +75,19 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
