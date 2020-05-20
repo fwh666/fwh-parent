@@ -34,6 +34,7 @@
         <module>fwh-sentine</module>
         <module>fwh-nacostest</module>
         <module>fwh-websocket</module>
+        <module>fwh-annotation</module>
     </modules>
 
     <properties>
