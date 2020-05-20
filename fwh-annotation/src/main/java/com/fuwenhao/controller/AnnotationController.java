@@ -1,5 +1,6 @@
 package com.fuwenhao.controller;
 
+import com.fuwenhao.config.LoginRequired;
 import com.fuwenhao.config.MyAnnotation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,14 @@ public class AnnotationController {
         return "访问资源sourceA";
     }
 
+    /**
+     * 自定义注解-拦截验证登录
+     *
+     * @param request
+     * @return java.lang.String
+     * @author fwh [2020/5/20 && 11:45 上午]
+     */
+    @LoginRequired
     @GetMapping("sourceB")
     public String sourceB(HttpServletRequest request) {
         return "访问资源sourceB";
