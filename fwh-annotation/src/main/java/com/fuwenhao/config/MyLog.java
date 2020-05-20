@@ -6,25 +6,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 反射获取字段信息
  * @author fwh
  * @email fuwenhao594@163.com
- * @date 2020/5/20 10:57 上午
+ * @date 2020/5/20 1:41 下午
  */
-@Target(ElementType.FIELD)
+@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MyAnnotation {
-    /**
-     * 地址
-     *
-     * @return
-     */
-    String address();
+public @interface MyLog {
 
-    /**
-     * 年龄
-     *
-     * @return
-     */
-    int age();
 }

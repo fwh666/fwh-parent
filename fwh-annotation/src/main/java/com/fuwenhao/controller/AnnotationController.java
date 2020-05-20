@@ -2,7 +2,9 @@ package com.fuwenhao.controller;
 
 import com.fuwenhao.config.LoginRequired;
 import com.fuwenhao.config.MyAnnotation;
+import com.fuwenhao.config.MyLog;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,6 +38,20 @@ public class AnnotationController {
     @GetMapping("sourceB")
     public String sourceB(HttpServletRequest request) {
         return "访问资源sourceB";
+    }
+
+    /**
+     * 自定义注解--日志拦截
+     *
+     * @param paramName
+     * @return java.lang.String
+     * @author fwh [2020/5/20 && 2:25 下午]
+     */
+    @MyLog
+    @GetMapping("sourceC/{paramName}")
+    public String sourceB(@PathVariable("paramName") String paramName) {
+        System.out.println(paramName);
+        return String.format("访问资源sourceC,参数名:%s", paramName);
     }
 
     /**
