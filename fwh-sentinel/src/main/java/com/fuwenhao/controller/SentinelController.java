@@ -24,12 +24,13 @@ public class SentinelController {
     }
 
     @GetMapping("sourceB")
-    public void sourceB() throws InterruptedException {
+    public String sourceB() throws InterruptedException {
         RestTemplate restTemplate = new RestTemplate();
         for (int i = 0; i < 100; i++) {
             final ResponseEntity<String> forEntity = restTemplate.getForEntity("http://127.0.0.1:8185/sentinel/sourceA", String.class);
 //            Thread.sleep(1000);
             System.out.println(forEntity.getBody() + i + " 次");
         }
+        return "访问资源：sourceA";
     }
 }
