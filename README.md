@@ -20,6 +20,7 @@ spring-cloud-demo
 - feign: 8182
 - nacos-config: 8183
 - annotation: 8184
+- sentinel: 8185
 
 ## 问题记录：
 - 网关请求一直报错404？

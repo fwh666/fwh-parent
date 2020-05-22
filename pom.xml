@@ -31,7 +31,7 @@
         <module>fwh-gateway</module>
         <module>fwh-ribbon</module>
         <module>fwh-feign</module>
-        <module>fwh-sentine</module>
+        <module>fwh-sentinel</module>
         <module>fwh-nacostest</module>
         <module>fwh-websocket</module>
         <module>fwh-annotation</module>
