@@ -35,6 +35,7 @@
         <module>fwh-nacostest</module>
         <module>fwh-websocket</module>
         <module>fwh-annotation</module>
+        <module>fwh-seata</module>
     </modules>
 
     <properties>

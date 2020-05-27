@@ -21,6 +21,7 @@ spring-cloud-demo
 - nacos-config: 8183
 - annotation: 8184
 - sentinel: 8185
+- seata: 8186
 
 ## 问题记录：
 - 网关请求一直报错404？
