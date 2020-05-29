@@ -36,6 +36,9 @@
         <module>fwh-websocket</module>
         <module>fwh-annotation</module>
         <module>fwh-seata</module>
+        <module>fwh-oauth</module>
+        <module>fwh-oauth-code</module>
+        <module>fwh-oauth-jwt</module>
     </modules>
 
     <properties>

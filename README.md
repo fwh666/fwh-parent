@@ -23,6 +23,8 @@ spring-cloud-demo
 - sentinel: 8185
 - seata: 8186
 
+- oauth: 独立的模块-整合密码模式、授权码模式、JWT存储 
+
 ## 问题记录：
 - 网关请求一直报错404？
     - 试错原因：boot和cloud的版本导致
