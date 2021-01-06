@@ -37,8 +37,10 @@
         <module>fwh-annotation</module>
         <module>fwh-seata</module>
         <module>fwh-oauth</module>
-        <module>fwh-oauth-code</module>
-        <module>fwh-oauth-jwt</module>
+        <module>fwh-spring</module>
+        <module>fwh-rabbitmq-consumer</module>
+<!--        <module>fwh-test</module>-->
+        <!--        <module>fwh-docker</module>-->
     </modules>
 
     <properties>
