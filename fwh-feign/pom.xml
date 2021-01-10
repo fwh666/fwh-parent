@@ -9,7 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>fwh-feign</artifactId>
-    <version>1.0.0</version>
     <dependencies>
         <!--加入nacos的依赖-->
         <dependency>
