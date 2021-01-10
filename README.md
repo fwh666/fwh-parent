@@ -4,7 +4,12 @@ spring-cloud-demo
 - 一直想着整一套cloud全家桶模块.
 - 在码云上已经创建了一大部分代码,但相比GitHub的知名度还是转移过来.
 - 本打算全部import过来,想着熟悉的角度还是重新review一遍.
-- 之前是用的spring-boot1.x版本。现在使用2.x版本重新开发    
+- 之前是用的spring-boot1.x版本。现在使用2.x版本重新开发
+## 分支介绍：
+- dev-20210110:
+    - 此分支综合所有继续开始的。之前没做分支，现在开始按日期迭代内容。
+    - 当前版本：JDK8、springboot2.0.0.RELEASE、springCloud:Hoxton.SR1、
+    - 后续迭代高版本
 ## 版本介绍:
 - 一套： 
     - springboot: 2.0.6.RELEASE   
