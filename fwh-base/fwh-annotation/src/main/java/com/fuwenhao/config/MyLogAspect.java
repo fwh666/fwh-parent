@@ -25,7 +25,7 @@ public class MyLogAspect {
         final Object[] args = proceedingJoinPoint.getArgs();
         StringBuilder stringBuilder = new StringBuilder();
         for (Object arg : args) {
-            stringBuilder.append(args).append(",");
+            stringBuilder.append(arg).append(",");
         }
         final String name = proceedingJoinPoint.getSignature().getName();
         System.out.println(String.format("执行方法名为:%s,参数为：%s", name, stringBuilder.toString()));
