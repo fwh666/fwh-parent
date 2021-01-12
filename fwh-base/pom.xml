@@ -13,6 +13,7 @@
         <module>fwh-annotation</module>
         <module>fwh-collection</module>
         <module>fwh-thread</module>
+        <module>fwh-lock</module>
     </modules>
 
     <artifactId>fwh-base</artifactId>
