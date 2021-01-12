@@ -9,7 +9,7 @@
         <version>2.2.0.RELEASE</version>
     </parent>
 
-    <groupId>com.fuwenhao</groupId>
+    <groupId>club.fuwenhao</groupId>
     <artifactId>fwh-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -34,7 +34,6 @@
         <module>fwh-sentinel</module>
         <module>fwh-nacostest</module>
         <module>fwh-websocket</module>
-        <module>fwh-annotation</module>
         <module>fwh-seata</module>
         <module>fwh-oauth</module>
         <module>fwh-spring</module>

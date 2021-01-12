@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 <!--    <parent>-->
 <!--        <artifactId>fwh-parent</artifactId>-->
-<!--        <groupId>com.fuwenhao</groupId>-->
+<!--        <groupId>club.fuwenhao</groupId>-->
 <!--        <version>1.0-SNAPSHOT</version>-->
 <!--    </parent>-->
     <parent>
@@ -16,7 +16,7 @@
 
 
     <artifactId>fwh-oauth</artifactId>
-    <groupId>com.fuwenhao</groupId>
+    <groupId>club.fuwenhao</groupId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <description>oauth2.0认证服务</description>
