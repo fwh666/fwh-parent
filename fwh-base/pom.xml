@@ -12,6 +12,7 @@
     <modules>
         <module>fwh-reflection</module>
         <module>fwh-annotation</module>
+        <module>fwh-collection</module>
     </modules>
 
 
