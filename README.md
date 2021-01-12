@@ -17,6 +17,14 @@ spring-cloud-demo
 - 二套：
     - springboot: 2.2.0.RELEASE
     - springCloud:Hoxton.SR1
+## 模块介绍：
+- fwh-base:
+    - 自定义注解
+    - 集合
+    - 锁机制
+    - 反射
+    - 线程
+    
 ## 端口号：
 - web:  8080/9090
 - mongodb: 8180
