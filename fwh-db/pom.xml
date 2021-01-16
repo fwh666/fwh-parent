@@ -9,20 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>fwh-spring</artifactId>
-    <description>重点模块-IOC和AOP</description>
+    <artifactId>fwh-db</artifactId>
+    <description>数据存储检索demo-MySQL-elasticsearch-MongoDB</description>
     <packaging>pom</packaging>
     <modules>
-        <module>fwh-ioc</module>
-        <module>fwh-aop</module>
-        <module>fwh-transaction</module>
+        <module>fwh-elasticsearch</module>
+        <module>fwh-mongodb</module>
+        <module>fwh-mysql</module>
     </modules>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-    </dependencies>
 
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
 
 </project>

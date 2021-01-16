@@ -3,26 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>fwh-parent</artifactId>
+        <artifactId>fwh-mq</artifactId>
         <groupId>club.fuwenhao</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+<!--    <parent>-->
+<!--        <groupId>org.springframework.boot</groupId>-->
+<!--        <artifactId>spring-boot</artifactId>-->
+<!--        <version>2.2.0.RELEASE</version>-->
+<!--    </parent>-->
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>fwh-spring</artifactId>
-    <description>重点模块-IOC和AOP</description>
-    <packaging>pom</packaging>
-    <modules>
-        <module>fwh-ioc</module>
-        <module>fwh-aop</module>
-        <module>fwh-transaction</module>
-    </modules>
+    <artifactId>fwh-rabbitmq-consumer</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
     </dependencies>
-
-
 </project>
