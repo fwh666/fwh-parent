@@ -34,6 +34,9 @@
         <module>fwh-mq</module>
         <module>fwh-db</module>
         <module>fwh-cloud</module>
+        <module>fwh-dubbo</module>
+        <module>fwh-distributed</module>
+        <module>fwh-zookeeper</module>
     </modules>
 
     <properties>
