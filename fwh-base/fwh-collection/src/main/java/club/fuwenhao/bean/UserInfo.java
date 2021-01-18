@@ -12,4 +12,16 @@ public class UserInfo {
     private String name;
     private Integer age;
     public String school;
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public String getSchool() {
+        return school;
+    }
 }
