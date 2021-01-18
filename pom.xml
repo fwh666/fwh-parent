@@ -23,6 +23,7 @@
         <module>fwh-db</module>
         <module>fwh-cloud</module>
         <module>fwh-distributed</module>
+        <module>fwh-algorithm</module>
     </modules>
 
     <properties>

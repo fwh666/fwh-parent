@@ -9,15 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>fwh-db</artifactId>
-    <description>数据存储检索demo-MySQL-elasticsearch-MongoDB</description>
-    <packaging>pom</packaging>
-    <modules>
-        <module>fwh-elasticsearch</module>
-        <module>fwh-mongodb</module>
-        <module>fwh-mysql</module>
-        <module>fwh-mybatis</module>
-    </modules>
+    <artifactId>fwh-algorithm</artifactId>
+    <description>算法-demo</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
