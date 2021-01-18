@@ -15,28 +15,15 @@
     <packaging>pom</packaging>
 
     <modules>
-        <!--        <module>fwh-eureka</module>-->
-        <!--        <module>fwh-config-server</module>-->
-        <!--        <module>fwh-config-client</module>-->
-        <!--        <module>fwh-web</module>-->
-        <!--        <module>fwh-ribbon-server</module>-->
-        <!--        <module>fwh-fastdfs</module>-->
-        <!--        <module>fwh-oauth</module>-->
-        <!--        <module>fwh-zuul-demo</module>-->
-        <!--        <module>spring-boot-example</module>-->
         <module>fwh-common</module>
         <module>spring-boot-example</module>
-        <module>fwh-web</module>
         <module>fwh-websocket</module>
         <module>fwh-spring</module>
         <module>fwh-base</module>
-        <module>fwh-redis</module>
-        <module>fwh-mq</module>
         <module>fwh-db</module>
         <module>fwh-cloud</module>
-        <module>fwh-dubbo</module>
         <module>fwh-distributed</module>
-        <module>fwh-zookeeper</module>
+        <module>fwh-mvc</module>
     </modules>
 
     <properties>

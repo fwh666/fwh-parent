@@ -1,4 +1,4 @@
-package club.fuwenhao;
+package club.fuwenhao.config;
 
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @date 2020/6/1 2:36 下午
  */
 @Component
-public class ListenerController implements ApplicationListener {
+public class ListenerConfig implements ApplicationListener {
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
         System.out.println("监听器："+event);

@@ -16,6 +16,7 @@
         <module>fwh-ioc</module>
         <module>fwh-aop</module>
         <module>fwh-transaction</module>
+        <module>fwh-mvc</module>
     </modules>
     <dependencies>
         <dependency>
