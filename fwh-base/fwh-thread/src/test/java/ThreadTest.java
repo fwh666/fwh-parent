@@ -1,3 +1,6 @@
+import club.fuwenhao.controller.MyCallable;
+import club.fuwenhao.controller.MyRunnable;
+import club.fuwenhao.controller.MyThread;
 import org.junit.Test;
 
 import java.util.Random;
@@ -15,25 +18,45 @@ public class ThreadTest {
      *
      * @param
      * @return void
+     * {@link MyThread
+     * @link MyRunnable}
      * @author fwh [2021/1/12 && 2:12 下午]
      */
-    public void createThread() {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final String name = Thread.currentThread().getName();
-                System.out.println("线程名：" + name);
-            }
-        });
-        thread.start();
-    }
-
     @Test
     public void threadTest() {
         for (int i = 0; i < 10; i++) {
-            createThread();
+//            MyThread myThread = new MyThread();
+//            myThread.start();
+            MyRunnable myRunnable = new MyRunnable();
+            myRunnable.run();
         }
     }
+
+    /**
+     * Callable的返回值需要用FutureTask的get得到
+     * {@link MyCallable}
+     *
+     * @param
+     * @return void
+     * @author fwh [2021/1/18 && 3:40 下午]
+     */
+    @Test
+    public void callableTest() {
+        FutureTask<Integer> futureTask = new FutureTask<Integer>(new MyCallable());
+//        for (int i = 0; i < 10; i++) {
+        new Thread(futureTask).start();
+        try {
+            Thread.sleep(1000);
+            System.out.println("返回结果: " + futureTask.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+//        }
+        System.out.println(Thread.currentThread().getName() + " main()方法执行完成");
+    }
+
 
     /**
      * 线程池创建
@@ -123,6 +146,7 @@ public class ThreadTest {
      * 但是，只要有一个人没到终点，就不能喝。 这里也没有要求大家要同时起跑(当然也可以，加latch)。
      * <p>
      * CyclicBarrier强调的是n个线程，大家相互等待，只要有一个没完成，所有人都得等着。正如上例，只有5个人全部跑到终点，大家才能开喝，否则只能全等着。
+     * {@link club.fuwenhao.controller.CyclicBarrierTest}
      *
      * @param
      * @return void
@@ -132,36 +156,6 @@ public class ThreadTest {
     public void cyclicBarrier() {
     }
 
-//    public static void main(String[] args) {
-//        int N = 4;
-//        CyclicBarrier barrier = new CyclicBarrier(N);
-//        for (int i = 0; i < N; i++) {
-//            new Writer(barrier).start();
-//        }
-//    }
-
-    static class Writer extends Thread {
-        private CyclicBarrier cyclicBarrier;
-
-        public Writer(CyclicBarrier cyclicBarrier) {
-            this.cyclicBarrier = cyclicBarrier;
-        }
-
-        @Override
-        public void run() {
-            System.out.println("线程" + Thread.currentThread().getName() + "正在写入数据...");
-            try {
-                Thread.sleep(3000);      //以睡眠来模拟写入数据操作
-                System.out.println("线程" + Thread.currentThread().getName() + "写入数据完毕，等待其他线程写入完毕");
-                cyclicBarrier.await();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (BrokenBarrierException e) {
-                e.printStackTrace();
-            }
-            System.out.println("所有线程写入完毕，继续处理其他任务...");
-        }
-    }
 
     /**
      * Semaphore
@@ -173,6 +167,7 @@ public class ThreadTest {
      * <p>
      * 解释：Semaphore翻译成字面意思为 信号量，
      * Semaphore可以控同时访问的线程个数，通过 acquire() 获取一个许可，如果没有就等待，而 release() 释放一个许可。
+     * {@link club.fuwenhao.controller.SemaphoreTest}
      *
      * @param
      * @return void
@@ -180,36 +175,6 @@ public class ThreadTest {
      */
     @Test
     public void semaphore() {
-    }
-
-    public static void main(String[] args) {
-        // 线程池
-        ExecutorService exec = Executors.newCachedThreadPool();
-        // 只能5个线程同时访问
-        final Semaphore semaphore = new Semaphore(5);
-        // 模拟20个客户端访问
-        for (int index = 0; index < 50; index++) {
-            final int NO = index;
-            Runnable run = new Runnable() {
-                public void run() {
-                    try {
-                        // 获取许可
-                        semaphore.acquire();
-                        System.out.println("Accessing: " + NO);
-                        Thread.sleep((long) (Math.random() * 5000));
-                        // 访问完后，释放
-                        semaphore.release();
-                        //availablePermits()指的是当前信号灯库中有多少个可以被使用
-                        System.out.println("剩余-----------------" + semaphore.availablePermits());
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            };
-            exec.execute(run);
-        }
-        // 退出线程池
-        exec.shutdown();
     }
 
 
