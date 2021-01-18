@@ -24,6 +24,7 @@
         <module>fwh-cloud</module>
         <module>fwh-distributed</module>
         <module>fwh-mvc</module>
+        <module>fwh-designPattern</module>
     </modules>
 
     <properties>
