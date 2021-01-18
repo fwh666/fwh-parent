@@ -2,6 +2,8 @@ package club.fuwenhao.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
@@ -17,8 +19,9 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Component
 @ServerEndpoint("/imserver/{userId}")
-@Slf4j
+//@Slf4j
 public class WebSocketServer {
+    Logger log = LoggerFactory.getLogger(WebSocketServer.class);
     /**
      * 静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
      */
@@ -130,11 +133,12 @@ public class WebSocketServer {
      * 发送自定义消息
      */
     public static void sendInfo(String message, @PathParam("userId") String userId) throws IOException {
-        log.info("发送消息到:" + userId + "，报文:" + message);
+        System.out.println("发送消息到:" + userId + "，报文:" + message);
         if (StringUtils.isNotBlank(userId) && webSocketMap.containsKey(userId)) {
             webSocketMap.get(userId).sendMessage(message);
         } else {
-            log.error("用户" + userId + ",不在线！");
+//            log.error("用户" + userId + ",不在线！");
+            System.out.println("用户" + userId + ",不在线！");
         }
     }
 
