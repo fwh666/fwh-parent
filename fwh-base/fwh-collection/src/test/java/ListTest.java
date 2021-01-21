@@ -78,11 +78,42 @@ public class ListTest {
      */
     @Test
     public void arrayList() {
-//        List list = new ArrayList(1);
-        List list = new LinkedList();
+        List<Integer> list = new ArrayList(1);
         list.add(1);
         list.add(2);
-        System.out.println(list);
+        //三种遍历
+        final Iterator<Integer> iterator = list.iterator();
+//        if (iterator.hasNext()) {
+        while (iterator.hasNext()) {
+            final Integer next = iterator.next();
+            System.out.println(next);
+        }
+        list.forEach((index) -> System.out.println(index));
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+
+    }
+
+    /**
+     * linkedList
+     * 底层原理：
+     * 优缺点：
+     *
+     * @param
+     * @return void
+     * @author fwh [2021/1/21 && 7:45 下午]
+     */
+    @Test
+    public void linkedList() {
+        List<String> list = new LinkedList();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println(list.toArray());
+        list.remove(0);
+        list.remove("b");
+        System.out.println(list.toArray());
     }
 
     /**
@@ -112,6 +143,7 @@ public class ListTest {
         String[] array = new String[]{"123", "456"};
         System.out.println(Arrays.asList(array));
     }
+
 
     /**
      * 多线程情况下-安全集合采用synchronizedList
@@ -152,5 +184,20 @@ public class ListTest {
             System.out.println(list.size());
             it.remove();
         }
+    }
+
+    /**
+     * 判断list是否实现RandomAccess接口来实行indexedBinarySerach(list,key)或iteratorBinarySerach(list,key)方法。ps（instanceof其作用是用来判断某对象是否为某个类或接口类型）
+     * 从上面数据可以看出，ArrayList用for循环遍历比iterator迭代器遍历快，LinkedList用iterator迭代器遍历比for循环遍历快，
+     * 总结：RandomAccess接口这个空架子的存在，是为了能够更好地判断集合是否ArrayList或者LinkedList，从而能够更好选择更优的遍历方式，提高性能！
+     *
+     * <a href="https://blog.csdn.net/weixin_39148512/article/details/79234817">参考网址</a>
+     *
+     * @param
+     * @return void
+     * @author fwh [2021/1/21 && 7:49 下午]
+     */
+    @Test
+    public void randomAccess() {
     }
 }
