@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @email fuwenhao594@163.com
  * @date 2021/1/18 3:43 下午
  */
-@Slf4j
+//@Slf4j
 public class MyLock {
     public static void main(String[] args) {
         Lock lock = new ReentrantLock();

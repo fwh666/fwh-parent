@@ -1,7 +1,5 @@
 package club.fuwenhao.controller;
 
-import java.util.concurrent.Callable;
-
 /**
  * @author fwh
  * @email fuwenhao594@163.com

@@ -204,4 +204,43 @@ public class ThreadTest {
 
     }
 
+    /**
+     * todo-fwh-基本使用-join、wait、sleep、notify、notifyAll、yield、interrupted、isInterrupted、
+     *
+     * @param
+     * @return void
+     * @author fwh [2021/1/24 && 4:30 下午]
+     */
+    @Test
+    public void threadBaseTest() throws InterruptedException {
+        final Thread thread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 5; i++) {
+                    System.out.println("thread1:" + Thread.currentThread().getName());
+                }
+            }
+        });
+        final Thread thread2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 5; i++) {
+                    System.out.println("thread2:" + Thread.currentThread().getName());
+                }
+
+            }
+        });
+        thread1.start();
+        thread1.join();
+        thread2.start();
+        for (int i = 0; i < 10; i++) {
+            //run运行的是主方法线程
+//            thread1.run();
+//            thread2.run();
+            //start才是多线程启动-生命周期上是由新建、就绪的状态
+//            thread1.start();
+//            thread2.start();
+        }
+    }
+
 }
