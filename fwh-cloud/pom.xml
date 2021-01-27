@@ -20,6 +20,7 @@
         <module>fwh-nacostest</module>
         <module>fwh-oauth</module>
         <module>fwh-web</module>
+        <module>fwh-swagger</module>
     </modules>
 
     <properties>
