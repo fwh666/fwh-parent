@@ -1,4 +1,4 @@
-package club.fuwenhao.temp.netty;
+package club.fuwenhao.netty.base;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

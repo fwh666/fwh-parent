@@ -1,4 +1,4 @@
-package club.fuwenhao.netty;
+package club.fuwenhao.temp.netty.reconnect;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -7,11 +7,10 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
 
 /**
- * @author fwh
- * @email fuwenhao594@163.com
- * @date 2021/1/19 7:37 下午
+ * 自定义Handler需要继承netty规定好的某个HandlerAdapter(规范)
  */
 public class NettyServerHandler extends ChannelInboundHandlerAdapter {
+
     /**
      * 读取客户端发送的数据
      *
@@ -37,7 +36,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        ByteBuf buf = Unpooled.copiedBuffer("HelloClient", CharsetUtil.UTF_8);
+        ByteBuf buf = Unpooled.copiedBuffer("HelloClient".getBytes(CharsetUtil.UTF_8));
         ctx.writeAndFlush(buf);
     }
 

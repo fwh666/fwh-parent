@@ -1,4 +1,4 @@
-package club.fuwenhao.netty;
+package club.fuwenhao.netty.base;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
