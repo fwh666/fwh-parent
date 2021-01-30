@@ -17,6 +17,9 @@ spring-cloud-demo
 - 二套：
     - springboot: 2.2.0.RELEASE
     - springCloud:Hoxton.SR1
+- 三套：
+    - springboot：2.4.1
+    - springcloud:2020.0.0-RC1
 ## 模块介绍：
 - fwh-base:
     - 自定义注解

@@ -1,5 +1,8 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author fwh
  * @email fuwenhao594@163.com
@@ -34,5 +37,24 @@ public class ForTest {
                 return "0";
         }
 //        return "0";
+    }
+
+    /**
+     * 空集合取值正常
+     *
+     * @param
+     * @return void
+     * @author fwh [2021/1/28 && 5:36 下午]
+     */
+    @Test
+    public void forTest() {
+        List<String> stringList = new ArrayList<>();
+//        stringList.add("zhangsan");
+        for (String s : stringList) {
+            System.out.println(s);
+        }
+        for (int i = 0; i < stringList.size(); i++) {
+            System.out.println(stringList.get(i));
+        }
     }
 }
