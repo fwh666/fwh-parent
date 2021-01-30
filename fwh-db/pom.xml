@@ -17,6 +17,7 @@
         <module>fwh-mongodb</module>
         <module>fwh-mysql</module>
         <module>fwh-mybatis</module>
+        <module>fwh-sharding</module>
     </modules>
 
     <properties>
