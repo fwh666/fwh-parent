@@ -1,0 +1,20 @@
+server:
+  port: 38081
+spring:
+  application:
+    name: fwh-dubbo-provider
+dubbo:
+  scan:
+    base-packages: club..provider
+  application:
+    name: ${spring.application.name}
+  protocol:
+    name: http
+    server: tomcat
+    port: 38081
+#  protocol:
+#    name: dubbo
+#    server: netty
+#    port: 20880
+  registry:
+    address: zookeeper://127.0.0.1:2181

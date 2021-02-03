@@ -1,0 +1,12 @@
+server:
+  port: 38082
+spring:
+  application:
+    name: fwh-dubbo-consumer
+dubbo:
+  scan:
+    base-packages: club..consumer
+  application:
+    name: ${spring.application.name}
+  registry:
+    address: zookeeper://127.0.0.1:2181

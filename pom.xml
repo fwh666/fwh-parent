@@ -24,8 +24,6 @@
         <module>fwh-cloud</module>
         <module>fwh-distributed</module>
         <module>fwh-algorithm</module>
-        <module>fwh-sharding</module>
-        <module>fwh-encryption</module>
     </modules>
 
     <properties>
