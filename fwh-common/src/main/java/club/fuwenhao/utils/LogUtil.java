@@ -3,6 +3,12 @@ package club.fuwenhao.utils;
 import club.fuwenhao.bean.LogInfo;
 import org.slf4j.Logger;
 
+/**
+ * 日志封装
+ *
+ * @author fwh [2021/2/5 && 5:04 下午]
+ * @return
+ */
 public class LogUtil {
 
     private LogUtil() {

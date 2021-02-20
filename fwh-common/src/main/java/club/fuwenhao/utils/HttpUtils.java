@@ -21,6 +21,14 @@ public class HttpUtils {
     private HttpUtils() {
     }
 
+    /**
+     * post请求
+     *
+     * @param url
+     * @param params
+     * @return java.lang.String
+     * @author fwh [2021/2/5 && 5:03 下午]
+     */
     public static String post(String url, String params) {
         // 获得Http客户端(可以理解为:你得先有一个浏览器;注意:实际上HttpClient与浏览器是不一样的)
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();

@@ -19,6 +19,15 @@ public class FileUtil {
 
     private static final Logger log = LoggerFactory.getLogger(FileUtil.class);
 
+    /**
+     * 写入磁盘
+     *
+     * @param file
+     * @param filePath
+     * @param fileName
+     * @return void
+     * @author fwh [2021/2/5 && 5:03 下午]
+     */
     public static void writeToDisk(byte[] file, String filePath, String fileName) {
         File targetFile = new File(filePath + fileName);
         File parentFile = targetFile.getParentFile();
@@ -47,6 +56,13 @@ public class FileUtil {
         }
     }
 
+    /**
+     * 删除文件
+     *
+     * @param fileName
+     * @return boolean
+     * @author fwh [2021/2/5 && 5:02 下午]
+     */
     public static boolean deleteFile(String fileName) {
         File file = new File(fileName);
         // 如果文件路径所对应的文件存在，并且是一个文件，则直接删除
@@ -57,6 +73,13 @@ public class FileUtil {
         }
     }
 
+    /**
+     * 随机UUID
+     *
+     * @param fileName
+     * @return java.lang.String
+     * @author fwh [2021/2/5 && 5:02 下午]
+     */
     public static String renameToUUID(String fileName) {
         return UUID.randomUUID() + "." + fileName.substring(fileName.lastIndexOf('.') + 1);
     }
@@ -77,7 +100,13 @@ public class FileUtil {
     }
 
 
-    //删除文件夹
+    /**
+     * 删除文件夹
+     *
+     * @param folderPath
+     * @return void
+     * @author fwh [2021/2/5 && 5:02 下午]
+     */
     public static void delFolder(String folderPath) {
         try {
             delAllFile(folderPath); //删除完里面所有内容
@@ -92,7 +121,12 @@ public class FileUtil {
         }
     }
 
-    //删除指定文件夹下的所有文件
+    /**
+     * 删除指定文件夹下的所有文件
+     *
+     * @return
+     * @author fwh [2021/2/5 && 5:02 下午]
+     */
     public static boolean delAllFile(String path) {
         boolean flag = false;
         File file = new File(path);
