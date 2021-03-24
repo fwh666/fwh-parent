@@ -1,5 +1,7 @@
+import club.fuwenhao.bean.UserInfo;
 import org.junit.Test;
 
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -44,15 +46,37 @@ public class SetTest {
      */
     @Test
     public void set() {
-//        Set set = new HashSet();//是无序的
+        Set set = new HashSet();//是无序的
 //        Set set = new TreeSet();//是有序的
-        Set set = new LinkedHashSet();//保持添加的顺序
+//        Set set = new LinkedHashSet();//保持添加的顺序
         set.add(2);
         set.add(1);
         set.add(3);
         set.add(1);
         for (Object o : set) {
             System.out.println(o);
+        }
+    }
+
+    /**
+     * set内部原理存储比较-排除重复对象
+     * <a href="https://zhuanlan.zhihu.com/p/136342552">HashSet是如何保证元素不重复的</a>
+     *
+     * @description 内部原理也是hashmap，通过唯一的key来判断是否重复。一、先hash计算位置是否有值。二、有值的话通过hash和equals比较是否重复
+     * @return void
+     * @author fwh [2021/3/24 && 9:04 下午]
+     */
+    @Test
+    public void setObject() {
+        Set<UserInfo> userInfoSet = new HashSet<>();
+        final UserInfo userInfo1 = new UserInfo();
+        final UserInfo userInfo2 = new UserInfo();
+        userInfo1.setName("张三");
+        userInfo2.setName("张三");
+        userInfoSet.add(userInfo1);
+        userInfoSet.add(userInfo2);
+        for (UserInfo userInfo : userInfoSet) {
+            System.out.println(userInfo);
         }
     }
 }
