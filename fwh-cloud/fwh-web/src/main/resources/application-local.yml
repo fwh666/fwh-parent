@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 18080
 spring:
   cloud:
     nacos:
@@ -7,3 +7,7 @@ spring:
         server-addr: 127.0.0.1:8848
   application:
     name: fwh-web
+logging:
+  file:
+    path: /export/Logs
+  config: classpath:logback-spring.xml
