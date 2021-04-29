@@ -4,13 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.nio.charset.Charset;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.util.zip.*;
 
 public class ZipUtil {
 	private static final Logger log = LoggerFactory.getLogger(ZipUtil.class);
@@ -76,5 +72,113 @@ public class ZipUtil {
 			zipInputStream.close();
 		}
 		return zipEntryName;
+	}
+	public void compress(String srcFilePath, String destFilePath) {
+		File src = new File(srcFilePath);
+		if (!src.exists()) {
+			throw new RuntimeException(srcFilePath + "不存在");
+		} else {
+			File zipFile = new File(destFilePath);
+			FileOutputStream fos = null;
+			CheckedOutputStream cos = null;
+			ZipOutputStream zos = null;
+
+			try {
+				fos = new FileOutputStream(zipFile);
+				cos = new CheckedOutputStream(fos, new CRC32());
+				zos = new ZipOutputStream(cos);
+				String baseDir = "";
+				if (src.isDirectory()) {
+					File[] files = src.listFiles();
+					File[] var10 = files;
+					int var11 = files.length;
+
+					for(int var12 = 0; var12 < var11; ++var12) {
+						File file = var10[var12];
+						this.compressByType(file, zos, baseDir);
+					}
+				} else {
+					this.compressByType(src, zos, baseDir);
+				}
+			} catch (Exception var30) {
+				log.error(var30.getMessage());
+			} finally {
+				try {
+					if (zos != null) {
+						zos.close();
+					}
+				} catch (IOException var29) {
+					log.error(var29.getMessage());
+				}
+
+				try {
+					if (cos != null) {
+						cos.close();
+					}
+				} catch (IOException var28) {
+					log.error(var28.getMessage());
+				}
+
+				try {
+					if (fos != null) {
+						fos.close();
+					}
+				} catch (IOException var27) {
+					log.error(var27.getMessage());
+				}
+
+			}
+
+		}
+	}
+
+	private void compressByType(File src, ZipOutputStream zos, String baseDir) {
+		if (src.exists()) {
+			log.info("压缩" + baseDir + src.getName());
+			if (src.isFile()) {
+				this.compressFile(src, zos, baseDir);
+			} else if (src.isDirectory()) {
+				this.compressDir(src, zos, baseDir);
+			}
+
+		}
+	}
+
+	private void compressDir(File srcDir, ZipOutputStream zos, String baseDir) {
+		if (!srcDir.exists()) {
+			throw new RuntimeException(srcDir + "不存在");
+		} else {
+			File[] files = srcDir.listFiles();
+			File[] var5 = files;
+			int var6 = files.length;
+
+			for(int var7 = 0; var7 < var6; ++var7) {
+				File file = var5[var7];
+				this.compressByType(file, zos, baseDir + srcDir.getName() + File.separator);
+			}
+
+		}
+	}
+
+	private void compressFile(File file, ZipOutputStream zos, String baseDir) {
+		if (file.exists()) {
+			try {
+				BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+				ZipEntry entry = new ZipEntry(baseDir + file.getName());
+				zos.putNextEntry(entry);
+				byte[] buf = new byte[1024];
+
+				int count;
+				while((count = bis.read(buf)) != -1) {
+					zos.write(buf, 0, count);
+				}
+
+				bis.close();
+			} catch (Exception var8) {
+				var8.printStackTrace();
+				log.error(var8.getMessage());
+			}
+
+		}
 	}
 }

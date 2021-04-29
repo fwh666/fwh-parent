@@ -1,7 +1,10 @@
+import club.fuwenhao.utils.AESUtils;
 import club.fuwenhao.utils.DateUtil;
 import club.fuwenhao.utils.Md5Util;
 import org.junit.Test;
 
+import javax.crypto.spec.SecretKeySpec;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 /**
@@ -11,12 +14,23 @@ import java.util.Date;
  */
 public class UtilsTest {
     @Test
-    public void md5Test(){
+    public void md5Test() {
         System.out.println(Md5Util.getMD5("test"));
     }
 
     @Test
-    public void dateTest(){
+    public void dateTest() {
         System.out.println(DateUtil.dateToISODate(new Date()));
+    }
+
+    @Test
+    public void aesTest() throws NoSuchAlgorithmException {
+        String test = "123456";
+        String secretKeyStr = AESUtils.getSecretKeyStr(test);
+        String encrypt = AESUtils.aesEncrypt("zhangsan", secretKeyStr);
+        System.out.println("密文：" + encrypt);
+
+        String decrypt = AESUtils.aesDecrypt(encrypt, secretKeyStr);
+        System.out.println("明文：" + decrypt);
     }
 }
