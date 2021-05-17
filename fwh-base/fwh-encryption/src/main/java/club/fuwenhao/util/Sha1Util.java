@@ -11,7 +11,7 @@ public class Sha1Util {
 
     /**
      * 需要加密的内容
-     *
+     * @param str
      * @throws NoSuchAlgorithmException
      * @throws UnsupportedEncodingException
      */
@@ -29,6 +29,11 @@ public class Sha1Util {
             hexValue.append(Integer.toHexString(val));
         }
         return hexValue.toString();
+    }
+
+    public static void main(String[] args) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        String data ="张胜男";
+        System.out.println(encode(data));
     }
 
 }

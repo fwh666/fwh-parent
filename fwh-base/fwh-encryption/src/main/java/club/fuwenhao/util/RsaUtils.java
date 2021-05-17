@@ -1,5 +1,7 @@
 package club.fuwenhao.util;
+
 import org.apache.commons.codec.binary.Base64;
+
 import javax.crypto.Cipher;
 import java.io.ByteArrayOutputStream;
 import java.security.*;
@@ -14,6 +16,7 @@ import java.util.Map;
 /**
  * @author fwh
  * @email fuwenhao594@163.com
+ * @description 数字签名工具类
  * @date 2021/1/30 4:05 下午
  */
 public class RsaUtils {
@@ -22,7 +25,18 @@ public class RsaUtils {
     public static final String CHARSET = "UTF-8";
     public static final String RSA_ALGORITHM = "RSA";
     public static final int KEY_SIZE = 1024;
+    public static final String SIGNATURE_ALGORITHM = "MD5withRSA";
+    //十六进制字符
+    private static final char[] HEX_CHAR = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
+    /**
+     * 生成公钥和私钥
+     *
+     * @param
+     * @return java.util.Map<java.lang.String, java.lang.String>
+     * @author fuwenhao
+     * @date 2021/5/17 2:23 下午
+     */
     public static Map<String, String> createKeys() {
         //为RSA算法创建一个KeyPairGenerator对象
         KeyPairGenerator kpg;
@@ -49,6 +63,14 @@ public class RsaUtils {
         return keyPairMap;
     }
 
+    /**
+     * 通过X509编码的Key指令获得公钥对象
+     *
+     * @param publicKey
+     * @return java.security.interfaces.RSAPublicKey
+     * @author fuwenhao
+     * @date 2021/5/17 2:24 下午
+     */
     public static RSAPublicKey getPublicKey(String publicKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
         //通过X509编码的Key指令获得公钥对象
         KeyFactory keyFactory = KeyFactory.getInstance(RSA_ALGORITHM);
@@ -57,7 +79,14 @@ public class RsaUtils {
         return key;
     }
 
-
+    /**
+     * 通过PKCS#8编码的Key指令获得私钥对象
+     *
+     * @param privateKey
+     * @return java.security.interfaces.RSAPrivateKey
+     * @author fuwenhao
+     * @date 2021/5/17 2:23 下午
+     */
     public static RSAPrivateKey getPrivateKey(String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
         //通过PKCS#8编码的Key指令获得私钥对象
         KeyFactory keyFactory = KeyFactory.getInstance(RSA_ALGORITHM);
@@ -66,6 +95,15 @@ public class RsaUtils {
         return key;
     }
 
+    /**
+     * 私钥加密数据
+     *
+     * @param data
+     * @param privateKey
+     * @return java.lang.String
+     * @author fuwenhao
+     * @date 2021/5/17 2:24 下午
+     */
     public static String privateEncrypt(String data, RSAPrivateKey privateKey) {
         try {
             Cipher cipher = Cipher.getInstance(RSA_ALGORITHM);
@@ -76,7 +114,15 @@ public class RsaUtils {
         }
     }
 
-
+    /**
+     * 公钥解密数据
+     *
+     * @param data
+     * @param publicKey
+     * @return java.lang.String
+     * @author fuwenhao
+     * @date 2021/5/17 2:24 下午
+     */
     public static String publicDecrypt(String data, RSAPublicKey publicKey) {
         try {
             Cipher cipher = Cipher.getInstance(RSA_ALGORITHM);
@@ -87,6 +133,17 @@ public class RsaUtils {
         }
     }
 
+    /**
+     * 核心-加解密
+     *
+     * @param cipher
+     * @param opmode
+     * @param datas
+     * @param keySize
+     * @return byte[]
+     * @author fuwenhao
+     * @date 2021/5/17 2:32 下午
+     */
     private static byte[] rsaSplitCodec(Cipher cipher, int opmode, byte[] datas, int keySize) {
         int maxBlock = 0;
         if (opmode == Cipher.DECRYPT_MODE) {
@@ -121,6 +178,14 @@ public class RsaUtils {
         return resultDatas;
     }
 
+    /**
+     * 字符串十六进制转换
+     *
+     * @param s
+     * @return java.lang.String
+     * @author fuwenhao
+     * @date 2021/5/17 2:29 下午
+     */
     public static String toHexString(String s) {
         String str = "";
         for (int i = 0; i < s.length(); i++) {
@@ -130,6 +195,97 @@ public class RsaUtils {
         return str;
     }
 
+    //***************************签名和验证*******************************  
+
+    /**
+     * 数据-签名
+     *
+     * @param data
+     * @param privateKeyStr
+     * @return java.lang.String
+     * @author fuwenhao
+     * @date 2021/5/17 3:25 下午
+     */
+    public static String sign(byte[] data, String privateKeyStr) throws Exception {
+        PrivateKey priK = getPrivateKey(new String(hexToBytes(privateKeyStr)));
+        Signature sig = Signature.getInstance(SIGNATURE_ALGORITHM);
+        sig.initSign(priK);
+        sig.update(data);
+        return bytesToHex(sig.sign());
+    }
+
+    /**
+     * 数据-验签
+     *
+     * @param data
+     * @param sign
+     * @param publicKeyStr
+     * @return boolean
+     * @author fuwenhao
+     * @date 2021/5/17 3:25 下午
+     */
+    public static boolean verify(byte[] data, String sign, String publicKeyStr) throws Exception {
+        PublicKey pubK = getPublicKey(new String(hexToBytes(publicKeyStr)));
+        Signature sig = Signature.getInstance(SIGNATURE_ALGORITHM);
+        sig.initVerify(pubK);
+        sig.update(data);
+        return sig.verify(hexToBytes(sign));
+    }
+
+    /**
+     * 将16进制字符串转换为byte[]
+     *
+     * @param str
+     * @return
+     */
+    public static byte[] hexToBytes(String str) {
+        if (str == null || str.trim().equals("")) {
+            return new byte[0];
+        }
+        byte[] bytes = new byte[str.length() / 2];
+        for (int i = 0; i < str.length() / 2; i++) {
+            String subStr = str.substring(i * 2, i * 2 + 2);
+            bytes[i] = (byte) Integer.parseInt(subStr, 16);
+        }
+        return bytes;
+    }
+
+    /**
+     * 将byte[]转换为16进制字符串
+     */
+    public static String bytesToHex(byte[] bytes) {
+        //一个byte为8位，可用两个十六进制位标识
+        char[] buf = new char[bytes.length * 2];
+        int a = 0;
+        int index = 0;
+        // 使用除与取余进行转换
+        for (byte b : bytes) {
+            if (b < 0) {
+                a = 256 + b;
+            } else {
+                a = b;
+            }
+            buf[index++] = HEX_CHAR[a / 16];
+            buf[index++] = HEX_CHAR[a % 16];
+        }
+        return new String(buf);
+    }
+
+    /**
+     * 思路汇总：
+     * 加解密：
+     * 1. 生成公钥私钥：
+     * 2. 私钥加密明文内容得到密文
+     * 3. 公钥解密密文内容得到明文
+     * 签名：
+     * 1. 私钥和签名内容加密得到签名
+     * 2. 公钥和签名内容加密的内容对比；true为签名一致
+     *
+     * @param args
+     * @return void
+     * @author fuwenhao
+     * @date 2021/5/17 3:39 下午
+     */
     public static void main(String[] args) throws Exception {
         Map<String, String> keyMap = createKeys();
         String publicKey = keyMap.get("publicKey");
@@ -147,5 +303,14 @@ public class RsaUtils {
         System.out.println("密文：\r\n" + toHexString(encodedData));
         String decodedData = publicDecrypt(encodedData, getPublicKey(publicKey));
         System.out.println("解密后文字: \r\n" + decodedData);
+
+
+        System.out.println("签名--验签");
+        String signData = "被签名的内容sssssssassssssssssssssssssssssssssssssssss";
+        System.out.println("\n原文:" + signData);
+        String signature = sign(signData.getBytes(), bytesToHex(privateKey.getBytes()));
+        System.out.println("签名为：" + signature);
+        boolean status = verify(signData.getBytes(), signature, bytesToHex(publicKey.getBytes()));
+        System.out.println("验证情况：" + status);
     }
 }
