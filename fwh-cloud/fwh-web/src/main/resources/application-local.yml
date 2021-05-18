@@ -11,3 +11,6 @@ logging:
   file:
     path: /export/Logs
   config: classpath:logback-spring.xml
+
+#rest_server: open.ucpaas.com
+#is_test: true
