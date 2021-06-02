@@ -17,6 +17,7 @@
         <module>fwh-aop</module>
         <module>fwh-transaction</module>
         <module>fwh-mvc</module>
+        <module>fwh-club.fuwenhao.bean</module>
     </modules>
     <dependencies>
         <dependency>
