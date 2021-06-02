@@ -17,6 +17,7 @@
         <module>fwh-exception</module>
         <module>fwh-designPattern</module>
         <module>fwh-encryption</module>
+        <module>fwh-basetype</module>
     </modules>
 
     <artifactId>fwh-base</artifactId>

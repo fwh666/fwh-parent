@@ -177,6 +177,25 @@ public class CollectionTest {
         }
     }
 
+    /**
+     * Set与List之间转化：
+     * List list = new ArrayList(set);
+     * Set set = new HashSet(list);
+     * 但是有一点,转换当中可能要丢失数据,尤其是从list转换到set的时候,因为set不能有重复数据
+     * https://blog.csdn.net/mhs624014469/article/details/78029243
+     */
+    @Test
+    public void listToSet(){
+        List<String> stringList = new ArrayList<>();
+        stringList.add("zhangsan02");
+        stringList.add("zhangsan01");
+        stringList.add("zhangsan03");
+        stringList.add("zhangsan01");
+        System.out.println(stringList);
+        Set<String> set = new HashSet<>(stringList);
+        System.out.println("set:"+set);
+    }
+
 
     /**
      * 深入理解 Map，HashMap，LinkedHashMap，TreeMap区别： https://juejin.cn/post/6844904069648089102
