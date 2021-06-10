@@ -8,7 +8,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <description>java-线程demo</description>
+    <description>java-线程demo-引申CPU底层原理等</description>
 
     <artifactId>fwh-thread</artifactId>
 
