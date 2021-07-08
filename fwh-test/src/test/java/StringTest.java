@@ -26,4 +26,11 @@ public class StringTest {
         final String substring = s.substring(0, 14);
         System.out.println(substring + "000");
     }
+    @Test
+    public void splitTest(){
+        String param="yz_bj_retai:test";
+        String[] str = param.split(":");
+        System.out.println(str[0]);
+        System.out.println(str[1]);
+    }
 }

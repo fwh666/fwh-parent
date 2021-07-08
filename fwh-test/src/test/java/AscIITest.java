@@ -19,6 +19,9 @@ public class AscIITest {
         paraMap.put("ts", "ts");
         paraMap.put("uids", "uids");
         paraMap.put("sysid", "sysid");
+        paraMap.put("vid", "vid");
+        paraMap.put("join_status", "Join_status");
+        paraMap.put("code", "code");
         String s = formatParamMap(paraMap, false, false);
         System.out.println(s);
     }
