@@ -31,6 +31,12 @@
             <artifactId>disruptor</artifactId>
             <version>3.2.1</version>
         </dependency>
+        <!--  纤程      -->
+        <dependency>
+            <groupId>co.paralleluniverse</groupId>
+            <artifactId>quasar-core</artifactId>
+            <version>0.7.6</version>
+        </dependency>
     </dependencies>
 
 </project>
