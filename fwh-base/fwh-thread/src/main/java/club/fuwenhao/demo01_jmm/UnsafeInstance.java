@@ -1,4 +1,4 @@
-package club.fuwenhao.demo01;
+package club.fuwenhao.demo01_jmm;
 
 import sun.misc.Unsafe;
 
