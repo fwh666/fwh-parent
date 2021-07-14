@@ -1,9 +1,7 @@
 import club.fuwenhao.bean.UserInfo;
 import org.junit.Test;
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 汇集set相关问题
@@ -78,5 +76,24 @@ public class SetTest {
         for (UserInfo userInfo : userInfoSet) {
             System.out.println(userInfo);
         }
+    }
+    /**
+     * list转换成set
+     * @param
+    * @return void
+    * @author fuwenhao
+    * @date 2021/7/14 11:22 上午
+    */
+    @Test
+    public void listToSet(){
+        List testList = new ArrayList();
+        testList.add("1");
+        testList.add("2");
+        testList.add("3");
+        testList.add("1");
+        System.out.println(testList);
+        HashSet hashSet = new HashSet<>(testList);
+        System.out.println(hashSet);
+
     }
 }
