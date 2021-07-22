@@ -153,9 +153,10 @@ public class AESUtils {
     }
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        String key = "123456";
+//        String key = "123456";
+        String key = "1qaz@WSX3edc";//Vd2Du11n/A76APrdxI+j2A==
         String secretKeyStr = AESUtils.getSecretKeyStr(key);
-        String encrypt = AESUtils.aesEncrypt("zhangsan", secretKeyStr);
+        String encrypt = AESUtils.aesEncrypt("1qaz@WSX3edc", secretKeyStr);
         System.out.println("密文：" + encrypt);
 
         String decrypt = AESUtils.aesDecrypt(encrypt, secretKeyStr);

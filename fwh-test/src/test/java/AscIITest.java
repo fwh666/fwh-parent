@@ -15,13 +15,20 @@ public class AscIITest {
         Map<String, String> paraMap = new HashMap<>(2);
         paraMap.put("appid", "app");
         paraMap.put("appkey", "appkey");
-        paraMap.put("action", "action");
+//        paraMap.put("action", "action");
+//        paraMap.put("auto_create_udept", "auto_create_udept");
         paraMap.put("ts", "ts");
-        paraMap.put("uids", "uids");
-        paraMap.put("sysid", "sysid");
-        paraMap.put("vid", "vid");
-        paraMap.put("join_status", "Join_status");
-        paraMap.put("code", "code");
+//        paraMap.put("uids", "uids");
+//        paraMap.put("users", "users");
+//        paraMap.put("sysid", "sysid");
+//        paraMap.put("vid", "vid");
+//        paraMap.put("join_status", "Join_status");
+//        paraMap.put("code", "code");
+        paraMap.put("roleId", "roleId");
+        paraMap.put("url", "url");
+        paraMap.put("mobile", "mobile");
+        paraMap.put("email", "email");
+        paraMap.put("subuser", "subuser");
         String s = formatParamMap(paraMap, false, false);
         System.out.println(s);
     }
