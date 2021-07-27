@@ -19,6 +19,7 @@
         <module>fwh-netty</module>
         <module>fwh-zookeeper</module>
         <module>fwh-mq</module>
+        <module>fwh-kafka</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
