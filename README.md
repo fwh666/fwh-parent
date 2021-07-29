@@ -1,4 +1,6 @@
 # 关于fwh-parent：
+## 测试：
+from GitHub 同步到GitHub
 ## 背景：
 - 开始只是重写spring-cloud2.0版本的组件功能。
 - 在码云上已经创建了一大部分代码,但相比GitHub的知名度还是转移过来.
