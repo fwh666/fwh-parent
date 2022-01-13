@@ -33,4 +33,11 @@ public class StringTest {
         System.out.println(str[0]);
         System.out.println(str[1]);
     }
+
+    @Test
+    public  void  replaceTest(){
+        String test="张三的积分不够了";
+        String replace = test.replace("积分", "福利金");
+        System.out.println(replace);
+    }
 }
