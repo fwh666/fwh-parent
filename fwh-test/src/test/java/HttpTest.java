@@ -1,3 +1,4 @@
+import club.fuwenhao.utils.HttpUtils;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -16,6 +17,13 @@ import java.io.IOException;
  * @date: 2022-01-17 12:28
  **/
 public class HttpTest {
+    @Test
+    public void getTest(){
+        HttpUtils.getUrl("https://www.baidu.com");
+    }
+
+
+
     @Test
     public void doGet() {
         // 创建Httpclient对象
